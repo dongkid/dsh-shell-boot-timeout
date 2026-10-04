@@ -105,6 +105,10 @@ command was run. ... Switch the permission preset to `workspace-write` ...
 本插件是一个 DSH **bundle**：`package.json` 里声明了 `dsh.bundle.patch` 的包。用插件管理器安装
 （`install_bundle`，传入本目录），包安装与 bundle 选择由它自己完成。
 
+> **包名与仓库名不同。** 包名是 `@local/dsh-shell-boot-timeout`，而仓库名取自 patch 行的 id
+> （`shell-boot-timeout`）。该包是 `private: true`、从不会发布到 npm——`@local/` 只是「仅本地」
+> bundle 的命名惯例，所以这个名字只对 DSH 的模块解析有意义。
+
 > **需要 pnpm ≥ 10。** DSH 的 profile 脚手架从 `pnpm-workspace.yaml` 读取 pnpm 设置，而只有
 > pnpm ≥ 10 才会读那里；pnpm 9 会以 `ERR_PNPM_ADDING_TO_ROOT` 失败。这是环境要求，与本插件无关。
 

@@ -119,6 +119,12 @@ This plugin is a DSH **bundle**: a package whose `package.json` declares
 `dsh.bundle.patch`. Install it with the plugin manager (`install_bundle`, given this
 directory), which performs package installation and bundle selection itself.
 
+> **Package vs repository name.** The package is named
+> `@local/dsh-shell-boot-timeout`; the repository is named for the patch row id
+> (`shell-boot-timeout`). The package is `private: true` and never published to npm —
+> `@local/` is just a convention for local-only bundles, so the name only matters for
+> DSH's module resolution.
+
 > **pnpm ≥ 10 is required.** DSH's profile scaffold reads pnpm settings from
 > `pnpm-workspace.yaml`, which only pnpm ≥ 10 does; pnpm 9 fails with
 > `ERR_PNPM_ADDING_TO_ROOT`. This is an environment requirement, not specific to this
