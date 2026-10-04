@@ -1,0 +1,9 @@
+# Normalize to LF in the repository for every text file, so the published source
+# has one consistent line ending regardless of the contributor's platform.
+* text=auto eol=lf
+
+# Keep binary-ish files untouched.
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary

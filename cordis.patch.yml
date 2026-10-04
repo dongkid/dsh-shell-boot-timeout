@@ -1,0 +1,20 @@
+# Bounds the first persistent-shell tool call per Agent.
+#
+# Why a TOP-LEVEL row, not a preset row: a patch cannot reach inside a preset's
+# `plugins` list — that list is `config` data of the `preset-<id>` row, not a
+# Loader group, so `- id: persistent-shell` finds nothing (verified with
+# `dsh --dump-config`: "patch insert: entry \"persistent-shell\" not found").
+# Targeting the preset would also mean restating the whole shipped minimal
+# preset on every DSH upgrade. A host-plane `tools/execute` wrapper needs no
+# preset knowledge, so one row here covers every preset, including minimal.
+#
+# Minimal on purpose: ONE inserted row, ONE injected service (`tools`), no preset
+# override, no new tool, no prompt change, no change to any working mode.
+- insert:
+    - id: shell-boot-timeout
+      name: '@local/dsh-shell-boot-timeout'
+      config:
+        bootTimeoutMs: 20000
+        toolNames:
+          - pwsh
+          - bash

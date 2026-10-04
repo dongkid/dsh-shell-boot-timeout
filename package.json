@@ -1,0 +1,46 @@
+{
+  "name": "@local/dsh-shell-boot-timeout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small single-file DSH plugin: bounds the first shell-tool call so a persistent shell that never reaches readiness fails with one actionable error instead of spinning.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "pwsh",
+    "timeout"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongkid/dsh-shell-boot-timeout.git"
+  },
+  "homepage": "https://github.com/dongkid/dsh-shell-boot-timeout#readme",
+  "bugs": {
+    "url": "https://github.com/dongkid/dsh-shell-boot-timeout/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "supported": {
+      "@deepseek-ai/dsh": ">=0.2.0-rc.2 <0.3.0",
+      "@deepseek-ai/dsh-terminal-bash": ">=0.2.0-rc.2 <0.3.0",
+      "verifiedAgainst": "0.2.0-rc.2",
+      "verifiedOn": "win32"
+    }
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ]
+}
